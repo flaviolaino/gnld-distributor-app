@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+	<head>
+		<title>GNLD Distributor App</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/normalize.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/layout.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<!--<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>-->
+	</head>
+
+	<body onload="init()">
+
+		<header class="container" id="page-header">
+			<span class="btn-go-to fa-stack fa-lg" goto="Home">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-home fa-stack-1x"></i>
+			</span>
+
+			<span class="btn-go-to fa-stack fa-lg pull-right" goto="Install">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-download fa-stack-1x"></i>
+			</span>
+
+			<span class="btn-go-to fa-stack fa-lg pull-right" goto="Update">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-refresh fa-stack-1x"></i>
+			</span>
+		</header>
+
+		<div class="container" id="section-container">
+
+			<div class="section" id="section_Install">
+				<button id="do_install">Install App</button>
+			</div>
+			<div class="section" id="section_Update">
+				<button id="do_update">Update App</button>
+			</div>
+
+			<div class="section shown text-center" id="section_Home">
+				<button class="btn-go-to" goto="Prodotti">Prodotti</button>
+				<button class="btn-go-to" goto="Ordini">Ordini</button>
+				<button class="btn-go-to" goto="Punti">Punti</button>
+			</div>
+
+			<div class="section" id="section_Prodotti">
+				<table id="catalogo_container" class="u-full-width">
+					<thead>
+						<tr>
+							<th>Prodotti</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="section" id="section_Prodotto">
+				<h2 class="prodotto-name"></h2>
+				<strong class="prodotto-description"></strong>
+				<hr>
+				<p class="prodotto-text"></p>
+				<hr>
+				<p class="prodotto-composition"></p>
+			</div>
+
+			<div class="section" id="section_Ordini">
+			</div>
+
+			<div class="section" id="section_Punti">
+			</div>
+
+		</div>
+
+	</body>
+
+	<script src="js/app.js"></script>
+	<script src="js/js.js"></script>
+</html>
