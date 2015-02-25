@@ -22,7 +22,7 @@
 				<i class="fa fa-home fa-stack-1x"></i>
 			</span>
 
-			<span class="btn-go-to fa-stack fa-lg pull-right" goto="Install">
+			<span class="btn-go-to fa-stack fa-lg pull-right btn-goto-Install" goto="Install">
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-download fa-stack-1x"></i>
 			</span>
@@ -36,10 +36,12 @@
 		<div class="container" id="section-container">
 
 			<div class="section" id="section_Install">
-				<button id="do_install">Install App</button>
+				<h3	 class="section-title">Install App</h3	>
+				<button id="do_install">Start install</button>
 			</div>
 			<div class="section" id="section_Update">
-				<button id="do_update">Update App</button>
+				<h3	 class="section-title">Update App</h3	>
+				<button id="do_update">Start update</button>
 			</div>
 
 			<div class="section shown text-center" id="section_Home">
@@ -49,19 +51,15 @@
 			</div>
 
 			<div class="section" id="section_Prodotti">
+				<h3	 class="section-title">Prodotti</h3	>
 				<table id="catalogo_container" class="u-full-width">
-					<thead>
-						<tr>
-							<th>Prodotti</th>
-						</tr>
-					</thead>
 					<tbody>
 					</tbody>
 				</table>
 			</div>
 
 			<div class="section" id="section_Prodotto">
-				<h2 class="prodotto-name"></h2>
+				<h3	 class="section-title" id="prodotto-name"></h3	>
 				<strong class="prodotto-description"></strong>
 				<hr>
 				<p class="prodotto-text"></p>
@@ -70,15 +68,18 @@
 			</div>
 
 			<div class="section" id="section_Ordini">
+				<h3	 class="section-title">Ordini</h3	>
 			</div>
 
 			<div class="section" id="section_Punti">
+				<h3	 class="section-title">Punti</h3	>
 			</div>
 
 		</div>
 
 	</body>
 
+	<script src="js/storage.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/js.js"></script>
 </html>

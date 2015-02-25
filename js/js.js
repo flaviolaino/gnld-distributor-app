@@ -1,6 +1,13 @@
 var Categorie_Prodotti = ['Integratori alimentari', 'A base di erbe', 'Controllo del peso', 'Cura della pelle', 'Cura della persona', 'Cura degli ambienti', 'Prodotti Industriali', 'Materiale promozionale'];
 
 function init(){
+	App._init();
+
+	if(App.info.is_installed == 'no'){
+		App.$('.btn-goto-Install').removeClass('btn-go-to');
+		App.$('.btn-goto-Install').addClass('btn-go-to-disabled');
+	}
+
 	App.$('.btn-go-to').on('click', function(ev){
 		goto(this.getAttribute('goto'));
 	});
@@ -19,7 +26,7 @@ function goto(section_name){
 
 	view_Section_Handlers(section_name);
 
-	App.$('#section_' + section_name)[0].classList.add('shown');
+	App.$('#section_' + section_name).addClass('shown');
 }
 
 function view_Section_Handlers(section_name){
@@ -44,7 +51,7 @@ function print_Prodotti(){
 		var found = App.Prodotti.search({category: el});
 
 		catalogo.push({is_cat: true, txt: el});
-console.log(found);
+
 		if(found.length){
 			for(var i in found){
 				var obj = found[i];
@@ -57,9 +64,9 @@ console.log(found);
 	if(catalogo.length){
 		catalogo.forEach(function(el, i){
 			var to_append;
-			//console.log(el);
+			console.log(el);
 
-			if(el.is_cat == true){
+			if(el.is_cat === true){
 				var tr = document.createElement('tr'),
 					td = document.createElement('td'),
 					txt = document.createTextNode(el.txt);
@@ -72,28 +79,31 @@ console.log(found);
 				to_append = tr;
 			}else{
 				var tr = document.createElement('tr'),
-					td_codice = document.createElement('td'),
-					td_nome = document.createElement('td'),
-					td_prezzo = document.createElement('td'),
-					txt_codice = document.createTextNode(el.code),
-					txt_nome = document.createTextNode(el.name),
-					txt_prezzo = document.createTextNode(el.price);
+					td = document.createElement('td'),
+					span_codice = document.createElement('span'),
+					span_nome = document.createElement('span'),
+					span_prezzo = document.createElement('span'),
+					txt_codice = document.createTextNode(el.info.code),
+					txt_nome = document.createTextNode(el.info.name),
+					txt_prezzo = document.createTextNode(el.info.price);
 
-				td_codice.setAttribute('goto', 'Prodotto');
-				td_nome.setAttribute('goto', 'Prodotto');
-				td_prezzo.setAttribute('goto', 'Prodotto');
+				td.setAttribute('goto', 'Prodotto');
 
-				td_codice.classList.add('btn-go-to');
-				td_nome.classList.add('btn-go-to');
-				td_prezzo.classList.add('btn-go-to');
+				td.classList.add('btn-go-to');
 
-				td_codice.appendChild(txt_codice);
-				td_nome.appendChild(txt_nome);
-				td_prezzo.appendChild(txt_prezzo);
+				span_codice.classList.add('prodotto-code');
+				span_nome.classList.add('prodotto-name');
+				span_prezzo.classList.add('prodotto-price');
 
-				tr.appendChild(td_codice);
-				tr.appendChild(td_nome);
-				tr.appendChild(td_prezzo);
+				span_codice.appendChild(txt_codice);
+				span_nome.appendChild(txt_nome);
+				span_prezzo.appendChild(txt_prezzo);
+
+				td.appendChild(span_codice);
+				td.appendChild(span_nome);
+				td.appendChild(span_prezzo);
+
+				tr.appendChild(td);
 
 				to_append = tr;
 			}
