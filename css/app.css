@@ -13,13 +13,13 @@
 
 .btn-go-to{
 	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 	outline: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-tap-highlight-color: transparent;
 }
-
-.btn-go-to-disabled, .btn-go-to-disabled:active, .btn-go-to-disabled:hover {
+.btn-go-to:focus{outline:0;}
+.btn-go-to-disabled, .btn-go-to-disabled:active, .btn-go-to-disabled:hover, .btn-go-to-disabled:focus {
 	opacity: .5 !important;
 	cursor: none !important;
 }
