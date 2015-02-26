@@ -18,11 +18,7 @@ function init(){
 }
 
 function goto(section_name){
-	var sections = App.$('.section');
-
-	for(i = 0; i < sections.length; i++){
-		sections[i].classList.remove('shown');
-	}
+	App.$('.section').removeClass('shown');
 
 	view_Section_Handlers(section_name);
 
@@ -43,7 +39,7 @@ function view_Section_Handlers(section_name){
 
 function print_Prodotti(){
 	var catalogo = [],
-		catalogo_container = App.$('#catalogo_container tbody')[0];
+		catalogo_container = App.$('#catalogo_container tbody')[0][0];
 
 	catalogo_container.innerHTML = '';
 
