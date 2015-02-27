@@ -36,7 +36,9 @@
 	max-width: 100%;
 }
 
-#page-header .fa-stack:active .fa-stack-1x{
+#page-header .fa-stack:active .fa-stack-1x,
+#page-header .fa-stack:hover .fa-stack-1x,
+#page-header .fa-stack:focus .fa-stack-1x{
 	color: #2e5389;
 }
 #page-header .fa-stack-2x{
@@ -94,6 +96,11 @@
 #catalogo_container .prodotto-price{
 	font-size: .85em;
 	float: right;
+}
+
+.update-info{
+	font-size: .7rem;
+	font-style: italic;
 }
 
 /*

@@ -3,9 +3,13 @@ var Categorie_Prodotti = ['Integratori alimentari', 'A base di erbe', 'Controllo
 function init(){
 	App._init();
 
-	if(App.info.is_installed == 'no'){
-		App.$('.btn-goto-Install').removeClass('btn-go-to');
-		App.$('.btn-goto-Install').addClass('btn-go-to-disabled');
+	if(App.info.is_installed == 'yes'){
+		//App.$('.btn-goto-Install').removeClass('btn-go-to');
+		//App.$('.btn-goto-Install').addClass('btn-go-to-disabled');
+		var install_btn = App.$('.btn-goto-Install')[0][0];
+		install_btn.parentNode.removeChild(install_btn);
+
+		App.$('update-info')[0][0].insertAdjacentHTML('beforeend', App.info.last_update);
 	}
 
 	App.$('.btn-go-to').on('click', function(ev){
@@ -29,7 +33,9 @@ function view_Section_Handlers(section_name){
 	var section_handlers = {
 		'Prodotti': print_Prodotti,
 		'Ordini': '',
-		'Punti': ''
+		'Punti': '',
+		'Install': '',
+		'Update': ''
 	};
 
 	if(section_handlers[section_name]){
